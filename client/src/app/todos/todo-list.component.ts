@@ -15,6 +15,8 @@ export class TodoListComponent implements OnInit {
   public todos: Todo[];
   public filteredTodos: Todo[];
 
+  public todoOwner: string;
+
   // TodoListService
 
  constructor(private todoListService: TodoListService) {
