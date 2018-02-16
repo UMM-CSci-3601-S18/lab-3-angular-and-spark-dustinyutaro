@@ -5,7 +5,8 @@
       <mat-divider></mat-divider>
       <mat-card-content>
         <mat-form-field>
-          <input matInput id="todoOwner" #input placeholder="Filter by owner" (input)="todoOwner = $event.target.value">
+          <input matInput id="todoOwner" #input placeholder="Filter by owner"
+                 (input)="todoOwner = $event.target.value">
         </mat-form-field>
 
          <mat-form-field>
@@ -18,8 +19,8 @@
         <!--</mat-form-field>-->
 
         <mat-accordion *ngIf="todos; else todosError">
-         <mat-expansion-panel #elem [id]="todo.owner" *ngFor="let todo of this.filterTodos(todoOwner)"
-          <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->   >
+         <mat-expansion-panel #elem [id]="todo.body" *ngFor="let todo of this.filterTodos(todoOwner,todoCategory)">
+          <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->
 
            <mat-expansion-panel-header>
               <mat-panel-title matTooltip="Status: {{todo.status}}">{{todo.body.substring(0,30) + "..."}}</mat-panel-title>
