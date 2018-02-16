@@ -1,7 +1,16 @@
+<script type="text/javascript" src="todo-client-html-helper.js"></script>
+
 <div layout-gt-sm="row">
   <div flex-gt-sm="80" flex-offset-gt-sm="10">
     <mat-card>
       <mat-card-title id="todo-list-title">Todos</mat-card-title>
+
+      <mat-form-field>
+        <input matInput id="todoID" #input placeholder="Find Todo by ID"
+               (input)="todoID = $event.target.value">
+      </mat-form-field>
+      <button type="button" id="GetTodoByID">Go</button>
+
       <mat-divider></mat-divider>
       <mat-card-content>
         <mat-form-field>
@@ -18,6 +27,12 @@
          <input matInput id="todoBody" #input placeholder="Search by Content"
                 (input)="todoBody = $event.target.value">
         </mat-form-field>
+
+        <p>
+        Filter by Complete <input id="CheckTrue" type="checkbox">
+        |
+        Filter by Incomplete <input id="CheckFalse" type="checkbox">
+        </p>
 
         <mat-accordion *ngIf="todos; else todosError">
          <mat-expansion-panel #elem [id]="todo.body" *ngFor="let todo of this.filterTodos(todoOwner,todoCategory,todoBody)">
@@ -38,7 +53,7 @@
         <!-- Maybe this should be a pop-up instead of just a text message? Not sure. -->
         <ng-template #todosError>
           <mat-error>
-            There was a problem loading the todoss. Possibly the server is down or perhaps there are network
+            There was a problem loading the todos. Possibly the server is down or perhaps there are network
             issues.
           </mat-error>
           <mat-error>
@@ -49,3 +64,11 @@
     </mat-card>
   </div>
 </div>
+
+<script>
+
+  
+
+
+
+</script>
