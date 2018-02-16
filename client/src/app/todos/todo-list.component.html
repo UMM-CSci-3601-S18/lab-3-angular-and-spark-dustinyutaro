@@ -9,17 +9,18 @@
                  (input)="todoOwner = $event.target.value">
         </mat-form-field>
 
-         <mat-form-field>
-           <input matInput id="todoCategory" #input placeholder="Filter by category"
+        <mat-form-field>
+          <input matInput id="todoCategory" #input placeholder="Filter by category"
                   (input)="todoCategory = $event.target.value">
-         </mat-form-field>
+        </mat-form-field>
 
-         <!--<mat-form-field>-->
-        <!--<input matInput id="userCompany" #input type="text" placeholder="Search for company" (input)="contentChange($event.target.value)">-->
-        <!--</mat-form-field>-->
+        <mat-form-field>
+         <input matInput id="todoBody" #input type="text" placeholder="Search by Content"
+                (input)="todoBody = $event.target.value">
+        </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
-         <mat-expansion-panel #elem [id]="todo.body" *ngFor="let todo of this.filterTodos(todoOwner,todoCategory)">
+         <mat-expansion-panel #elem [id]="todo.body" *ngFor="let todo of this.filterTodos(todoOwner,todoCategory,todoBody)">
           <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->
 
            <mat-expansion-panel-header>
@@ -30,6 +31,7 @@
 
             <mat-panel-description>Owner: {{todo.owner}}</mat-panel-description>
             <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
+            <mat-panel-description>Body: {{todo.body}}</mat-panel-description>
 
           </mat-expansion-panel>
         </mat-accordion>
