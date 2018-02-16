@@ -60,5 +60,19 @@ export class TodoListComponent implements OnInit {
     this.refreshTodos();
   }
 
-
 }
+
+
+// trying to get color code working
+/*
+export function StatusColor(givenTodo: To-do) {
+  let color = '';
+  if (givenTodo.status = 'true') {
+    color = '#99EEAA';
+  }
+  else {
+    color = '#EE9999';
+  }
+  return color;
+}
+*/

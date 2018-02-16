@@ -18,7 +18,8 @@
         <!--</mat-form-field>-->
 
         <mat-accordion *ngIf="todos; else todosError">
-         <mat-expansion-panel #elem [id]="todo.owner" *ngFor="let todo of this.filterTodos(todoOwner)">
+         <mat-expansion-panel #elem [id]="todo.owner" *ngFor="let todo of this.filterTodos(todoOwner)"
+          <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->   >
 
            <mat-expansion-panel-header>
               <mat-panel-title matTooltip="Status: {{todo.status}}">{{todo.body.substring(0,30) + "..."}}</mat-panel-title>
