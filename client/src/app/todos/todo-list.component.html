@@ -3,12 +3,6 @@
     <mat-card>
       <mat-card-title id="todo-list-title">Todos</mat-card-title>
 
-      <mat-form-field>
-        <input matInput id="todoID" #input placeholder="Find Todo by ID"
-               (input)="todoID = $event.target.value">
-      </mat-form-field>
-      <button type="button" id="GetTodoByID">Go</button>
-
       <mat-divider></mat-divider>
       <mat-card-content>
         <mat-form-field>
@@ -26,18 +20,19 @@
                 (input)="todoBody = $event.target.value">
         </mat-form-field>
 
-        <p>
-        Filter by Complete <input id="CheckTrue" type="checkbox">
-        |
-        Filter by Incomplete <input id="CheckFalse" type="checkbox">
-        </p>
+        <mat-form-field>
+          <input matInput id="todoStatus" #input placeholder="Search by Status"
+                 (input)="todoStatus = $event.target.value">
+        </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
-         <mat-expansion-panel #elem [id]="todo.body" *ngFor="let todo of this.filterTodos(todoOwner,todoCategory,todoBody)">
+         <mat-expansion-panel #elem [id]="todo.body"
+                              *ngFor="let todo of this.filterTodos
+                              (todoStatus,todoOwner,todoCategory,todoBody)">
           <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->
 
            <mat-expansion-panel-header>
-              <mat-panel-title matTooltip="Status: {{todo.status}}">{{todo.body.substring(0,30) + "..."}}</mat-panel-title>
+              <mat-panel-title matTooltip="Status: {{todo.category}}">{{todo.body.substring(0,30) + "..."}}</mat-panel-title>
 
             </mat-expansion-panel-header>
 
