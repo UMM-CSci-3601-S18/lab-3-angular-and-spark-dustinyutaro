@@ -36,12 +36,12 @@
 
 
         <mat-accordion *ngIf="todos; else todosError">
-         <mat-expansion-panel #elem [id]="todo.body"
+         <mat-expansion-panel #elem [id]="todo.status"
                               *ngFor="let todo of this.filterTodos
                               (CheckTrue,CheckFalse,todoOwner,todoCategory,todoBody)">
           <!--style="StatusColor(to-do.status)" //trying to get color code working//-->
 
-           <mat-expansion-panel-header>
+           <mat-expansion-panel-header #elem [id]="todo.status">
               <mat-panel-title
                 matTooltip="Status: {{StatusRefactor(todo.status)}}">
                 {{StatusImage(todo.status)}} {{todo.body.substring(0,30) + "..."}}
@@ -53,6 +53,7 @@
            <mat-panel-description>Owner: {{todo.owner}}</mat-panel-description>
            <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
            <mat-panel-description>Status: {{StatusRefactor(todo.status)}}</mat-panel-description>
+           <hr>
            <mat-panel-description>Body: {{todo.body}}</mat-panel-description>
 
 
