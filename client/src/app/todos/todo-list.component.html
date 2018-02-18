@@ -39,10 +39,13 @@
          <mat-expansion-panel #elem [id]="todo.body"
                               *ngFor="let todo of this.filterTodos
                               (CheckTrue,CheckFalse,todoOwner,todoCategory,todoBody)">
-          <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->
+          <!--style="StatusColor(to-do.status)" //trying to get color code working//-->
 
            <mat-expansion-panel-header>
-              <mat-panel-title matTooltip="Status: {{StatusRefactor(todo.status)}}">{{todo.body.substring(0,30) + "..."}}</mat-panel-title>
+              <mat-panel-title
+                matTooltip="Status: {{StatusRefactor(todo.status)}}">
+                {{StatusImage(todo.status)}} {{todo.body.substring(0,30) + "..."}}
+              </mat-panel-title>
 
             </mat-expansion-panel-header>
 
