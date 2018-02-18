@@ -91,16 +91,7 @@ export class TodoListComponent implements OnInit {
    }
  }
 
- StatusColor(inputStatus: boolean){
-   if (inputStatus) {
-     return 'background-color: #99EEAA';
-   }
-   else {
-     return 'background-color: #EE9999';
-   }
- }
-
- StatusImage(inputStatus: boolean){
+ StatusImage(inputStatus: boolean) {
    if (inputStatus) {
      return '✔';
    }

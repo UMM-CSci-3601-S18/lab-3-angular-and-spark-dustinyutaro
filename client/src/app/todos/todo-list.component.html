@@ -43,13 +43,14 @@
 
            <mat-expansion-panel-header #elem [id]="todo.status">
               <mat-panel-title
-                matTooltip="Status: {{StatusRefactor(todo.status)}}">
+                matTooltip="Owner: {{todo.owner}}">
                 {{StatusImage(todo.status)}} {{todo.body.substring(0,30) + "..."}}
               </mat-panel-title>
 
             </mat-expansion-panel-header>
 
 
+           <mat-panel-description>ID: {{todo._id}}</mat-panel-description>
            <mat-panel-description>Owner: {{todo.owner}}</mat-panel-description>
            <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
            <mat-panel-description>Status: {{StatusRefactor(todo.status)}}</mat-panel-description>
