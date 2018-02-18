@@ -42,15 +42,16 @@
           <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->
 
            <mat-expansion-panel-header>
-              <mat-panel-title matTooltip="Status: {{todo.status}}">{{todo.status}}</mat-panel-title>
+              <mat-panel-title matTooltip="Status: {{StatusRefactor(todo.status)}}">{{todo.body.substring(0,30) + "..."}}</mat-panel-title>
 
             </mat-expansion-panel-header>
 
 
-            <mat-panel-description>Owner: {{todo.owner}}</mat-panel-description>
-            <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
-            <mat-panel-description>Body: {{todo.body}}</mat-panel-description>
-           <mat-panel-description>Status: {{todo.status}}</mat-panel-description>
+           <mat-panel-description>Owner: {{todo.owner}}</mat-panel-description>
+           <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
+           <mat-panel-description>Status: {{StatusRefactor(todo.status)}}</mat-panel-description>
+           <mat-panel-description>Body: {{todo.body}}</mat-panel-description>
+
 
           </mat-expansion-panel>
         </mat-accordion>

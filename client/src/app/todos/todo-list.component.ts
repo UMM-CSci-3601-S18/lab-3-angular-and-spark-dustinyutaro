@@ -82,6 +82,15 @@ export class TodoListComponent implements OnInit {
    return this.filteredTodos;
  }
 
+  StatusRefactor(inputStatus: boolean) {
+   if (inputStatus) {
+     return 'Complete';
+   }
+   else {
+     return 'Incomplete';
+   }
+ }
+
 
  refreshTodos(): Observable<Todo[]> {
 
