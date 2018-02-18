@@ -16,23 +16,32 @@
         </mat-form-field>
 
         <mat-form-field>
-         <input matInput id="todoBody" #input placeholder="Search by Content"
+          <input matInput id="todoBody" #input placeholder="Search by Content"
                 (input)="todoBody = $event.target.value">
         </mat-form-field>
+        <p>
+        Find Complete
+        <mat-checkbox>
+          <input id="CheckTrue" type="checkbox" name="Status"
+                 (change)="CheckTrue = $event.target.checked">
+        </mat-checkbox>
+        |
+        Find Inomplete
+        <mat-checkbox>
+          <input id="CheckFalse" type="checkbox" name="Status"
+                 (change)="CheckFalse = $event.target.checked">
+        </mat-checkbox>
+        </p>
 
-        <mat-form-field>
-          <input matInput id="todoStatus" #input placeholder="Search by Status"
-                 (input)="todoStatus = $event.target.value">
-        </mat-form-field>
 
         <mat-accordion *ngIf="todos; else todosError">
          <mat-expansion-panel #elem [id]="todo.body"
                               *ngFor="let todo of this.filterTodos
-                              (todoStatus,todoOwner,todoCategory,todoBody)">
+                              (CheckTrue,CheckFalse,todoOwner,todoCategory,todoBody)">
           <!--style="background-color: {{StatusColor(to-do)}}"//trying to get color code working//-->
 
            <mat-expansion-panel-header>
-              <mat-panel-title matTooltip="Status: {{todo.category}}">{{todo.body.substring(0,30) + "..."}}</mat-panel-title>
+              <mat-panel-title matTooltip="Status: {{todo.status}}">{{todo.status}}</mat-panel-title>
 
             </mat-expansion-panel-header>
 
@@ -40,6 +49,7 @@
             <mat-panel-description>Owner: {{todo.owner}}</mat-panel-description>
             <mat-panel-description>Category: {{todo.category}}</mat-panel-description>
             <mat-panel-description>Body: {{todo.body}}</mat-panel-description>
+           <mat-panel-description>Status: {{todo.status}}</mat-panel-description>
 
           </mat-expansion-panel>
         </mat-accordion>
