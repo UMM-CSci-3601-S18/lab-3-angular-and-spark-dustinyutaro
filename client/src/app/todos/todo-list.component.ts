@@ -32,12 +32,23 @@ export class TodoListComponent implements OnInit {
    this.filteredTodos = this.todos;
 
    // Filter by Status
+   if (searchTrue !== true && searchTrue !== false) {
+     this.CheckTrue = true;
+   }
+   if (searchFalse !== true && searchFalse !== false) {
+     this.CheckFalse = true;
+   }
    if (searchTrue !== searchFalse) {
      if (searchTrue) {
        this.filteredTodos = this.filteredTodos.filter(todo => todo.status);
      }
      else {
        this.filteredTodos = this.filteredTodos.filter(todo => ! todo.status);
+     }
+   }
+   else {
+     if (! searchTrue) {
+       this.filteredTodos = null;
      }
    }
 

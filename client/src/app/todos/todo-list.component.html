@@ -20,15 +20,16 @@
                 (input)="todoBody = $event.target.value">
         </mat-form-field>
         <p>
-        Find Complete
+        Show Complete
         <mat-checkbox>
-          <input id="CheckTrue" type="checkbox" name="Status"
+          <input id="CheckTrue" type="checkbox" name="Status" checked
+                 ng-model="checked" ngInit="checked=true"
                  (change)="CheckTrue = $event.target.checked">
         </mat-checkbox>
         |
-        Find Inomplete
+        Show Incomplete
         <mat-checkbox>
-          <input id="CheckFalse" type="checkbox" name="Status"
+          <input id="CheckFalse" type="checkbox" name="Status" checked
                  (change)="CheckFalse = $event.target.checked">
         </mat-checkbox>
         </p>
