@@ -48,6 +48,15 @@ describe('Todo list', () => {
       'dolor anim mollit et exe...');
   });
 
+  it('should type something in filter category and content boxes ' +
+    'and check that it returned correct element ', () => {
+    page.navigateTo();
+    page.typeACategory('h');
+    page.typeABody('i o');
+    expect(page.getUniqueTodo('false')).toEqual('✗ Qui officia ' +
+      'excepteur officia...');
+  });
+
   it('should click on the Complete checkbox and check it ' +
     'returned correct elements', () => {
     page.navigateTo();

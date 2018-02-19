@@ -32,6 +32,12 @@ export class TodoPage {
     input.sendKeys(owner);
   }
 
+  typeACategory(category: string) {
+    let input = element(by.id('todoCategory'));
+    input.click();
+    input.sendKeys(category);
+  }
+
   typeABody(body: string) {
     let input = element(by.id('todoBody'));
     input.click();
