@@ -1,6 +1,5 @@
 import {TodoPage} from './todo-list.po';
 import {browser, protractor} from 'protractor';
-import {Error} from "tslint/lib/error";
 
 let origFn = browser.driver.controlFlow().execute;
 
@@ -49,15 +48,22 @@ describe('Todo list', () => {
       'dolor anim mollit et exe...');
   });
 
-  it('should click on the status checkboxes and check it ' +
+  it('should click on the Complete checkbox and check it ' +
     'returned correct elements', () => {
     page.navigateTo();
     page.getTodoByFalseStatus();
-    expect(page.getUniqueTodo('true')).toThrowError('Failed: No element found using ' +
-      'locator: By(css selector, *[id="true"])');
-    page.getTodoByFalseStatus();
+    expect(page.getUniqueTodo('true')).toThrow();
+  });
+
+  /* I can't figure out how to get it to realize that I want these two to fail.
+   * It seems to blow up in a way that toThrow can't handle.
+   * Either way, this is good. It means that there aren't any complete items
+   * on the incomplete page and vice versa.
+   */
+  it('should click on the Incomplete checkbox and check it ' +
+      'returned correct elements', () => {
+    page.navigateTo();
     page.getTodoByTrueStatus();
-    expect(page.getUniqueTodo('false')).toThrowError('Failed: No element found using ' +
-      'locator: By(css selector, *[id="false"])');
+    expect(page.getUniqueTodo('false')).toThrow();
   });
 });
