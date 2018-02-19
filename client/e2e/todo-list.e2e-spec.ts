@@ -54,7 +54,7 @@ describe('Todo list', () => {
     page.typeACategory('h');
     page.typeABody('i o');
     expect(page.getUniqueTodo('false')).toEqual('✗ Qui officia ' +
-      'excepteur officia...');
+      'excepteur officia ...');
   });
 
   it('should click on the Complete checkbox and check it ' +
