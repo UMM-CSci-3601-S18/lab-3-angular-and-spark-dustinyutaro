@@ -127,6 +127,17 @@ describe('Todo list', () => {
       .subscribe(x => expect(todoList.filteredTodos.length).toBe(1));
   });
 
+  it('todo list filters by owner, content, and status', () => {
+    expect(todoList.filteredTodos.length).toBe(4);
+    todoList.CheckTrue = true;
+    todoList.CheckFalse = false;
+    todoList.todoOwner = 'l';
+    todoList.todoBody = 'oup';
+    const a: Observable<Todo[]> = todoList.refreshTodos();
+    a.do(x => Observable.of(x))
+      .subscribe(x => expect(todoList.filteredTodos.length).toBe(1));
+  });
+
 });
 
 describe('Misbehaving Todo List', () => {

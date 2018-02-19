@@ -13,7 +13,7 @@ export class TodoPage {
       setTimeout(() => {
         element.setAttribute('style', previous);
       }, 200);
-      return "highlighted";
+      return 'highlighted';
     }
 
     return browser.executeScript(setStyle, element(byObject).getWebElement(), 'color: red; background-color: yellow;');
@@ -26,31 +26,40 @@ export class TodoPage {
     return title;
   }
 
-  typeAOwner(name: string) {
+  typeAOwner(owner: string) {
     let input = element(by.id('todoOwner'));
     input.click();
-    input.sendKeys(name);
+    input.sendKeys(owner);
+  }
+
+  typeABody(body: string) {
+    let input = element(by.id('todoBody'));
+    input.click();
+    input.sendKeys(body);
   }
 
   selectUpKey() {
     browser.actions().sendKeys(Key.ARROW_UP).perform();
   }
 
-  getTodoByStatus() {
-    let input = element(by.id('todoOwner'));
+  getTodoByFalseStatus() {
+    let input = element(by.id('CheckTrue'));
     input.click();
-    input.sendKeys(Key.TAB);
   }
 
-  backspace(){
+  getTodoByTrueStatus() {
+    let input = element(by.id('CheckFalse'));
+    input.click();
+  }
+
+  backspace() {
     browser.actions().sendKeys(Key.BACK_SPACE).perform();
   }
 
 
-  getUniqueTodo(category:string) {
-    let todo = element(by.id(category)).getText();
-    this.highlightElement(by.id(category));
-
+  getUniqueTodo(status: string) {
+    let todo = element(by.id(status)).getText();
+    this.highlightElement(by.id(status));
     return todo;
   }
 }
